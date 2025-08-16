@@ -27,7 +27,7 @@ message RegisterRequest {
 
 //Объект, который функция регистрации вернет
 message RegisterResponse {
-    uint64 user_id = 1;
+    int64 user_id = 1;
 }
 
 //Объект, который отправит функция Login
