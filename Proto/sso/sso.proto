@@ -1,0 +1,43 @@
+syntax="proto3";
+
+//Имя будущего пакета, в котором будут содержаться все интерфейсы, функции, структуры и т.п.
+package auth;
+
+//Путь к будущему пакету. Он будет использоваться при импорте пакета Auth в другие пакеты
+option go_package = "tuzov.sso.v1;ssov1";
+
+service Auth {
+    //Регистрация нового пользователя
+    rpc Register (RegisterRequest) returns (RegisterResponse);
+
+    //Получение токена при логировании пользователя
+    rpc Login (LoginRequest) returns (LoginResponse);
+}
+
+//Сервис для реализации проверки прав пользователей (на будущее)
+//service Permissions {
+//  rpc GetUserPermissions(GetUserPermissionsRequest) returns (GetUserPermissionsResponse);
+//}
+
+//Объект, который отправит функция регистрации 
+message RegisterRequest {
+    string email = 1;
+    string password = 2;
+}
+
+//Объект, который функция регистрации вернет
+message RegisterResponse {
+    uint64 user_id = 1;
+}
+
+//Объект, который отправит функция Login
+message LoginRequest {
+    string email = 1;
+    string password = 2;
+    int32 app_id = 3;
+}
+
+//Объект, который вернет функция LoginResponse (токен)
+message LoginResponse {
+    string token = 1;
+}
