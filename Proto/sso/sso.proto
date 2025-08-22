@@ -12,6 +12,9 @@ service Auth {
 
     //Получение токена при логировании пользователя
     rpc Login (LoginRequest) returns (LoginResponse);
+
+    //Check if user is administrator
+    rpc IsAdmin(IsAdminRequest) returns (IsAdminResponse);
 }
 
 //Сервис для реализации проверки прав пользователей (на будущее)
@@ -40,4 +43,12 @@ message LoginRequest {
 //Объект, который вернет функция LoginResponse (токен)
 message LoginResponse {
     string token = 1;
+}
+
+message IsAdminRequest {
+    int64 user_id = 1;
+}
+
+message IsAdminResponse {
+    bool is_admin = 1;
 }
