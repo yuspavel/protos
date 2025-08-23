@@ -58,7 +58,7 @@ message IsAdminResponse {
 
 message RoleRequest {
     int64 uid = 1;
-    string role = 2;
+    int32 role = 2;
 }
 
 message RoleResponse {

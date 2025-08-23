@@ -318,7 +318,7 @@ func (x *IsAdminResponse) GetIsAdmin() bool {
 type RoleRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Uid           int64                  `protobuf:"varint,1,opt,name=uid,proto3" json:"uid,omitempty"`
-	Role          string                 `protobuf:"bytes,2,opt,name=role,proto3" json:"role,omitempty"`
+	Role          int32                  `protobuf:"varint,2,opt,name=role,proto3" json:"role,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -360,11 +360,11 @@ func (x *RoleRequest) GetUid() int64 {
 	return 0
 }
 
-func (x *RoleRequest) GetRole() string {
+func (x *RoleRequest) GetRole() int32 {
 	if x != nil {
 		return x.Role
 	}
-	return ""
+	return 0
 }
 
 type RoleResponse struct {
@@ -433,7 +433,7 @@ const file_sso_sso_proto_rawDesc = "" +
 	"\bis_admin\x18\x01 \x01(\bR\aisAdmin\"3\n" +
 	"\vRoleRequest\x12\x10\n" +
 	"\x03uid\x18\x01 \x01(\x03R\x03uid\x12\x12\n" +
-	"\x04role\x18\x02 \x01(\tR\x04role\"(\n" +
+	"\x04role\x18\x02 \x01(\x05R\x04role\"(\n" +
 	"\fRoleResponse\x12\x18\n" +
 	"\asuccess\x18\x01 \x01(\bR\asuccess2\xdf\x01\n" +
 	"\x04Auth\x129\n" +
