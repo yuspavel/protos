@@ -13,8 +13,11 @@ service Auth {
     //Получение токена при логировании пользователя
     rpc Login (LoginRequest) returns (LoginResponse);
 
-    //Check if user is administrator
+    //Проверка, является ли пользователь Администратором
     rpc IsAdmin(IsAdminRequest) returns (IsAdminResponse);
+
+    //Добавление пользователю роли
+    rpc SetupRole(RoleRequest) returns (RoleResponse);
 }
 
 //Сервис для реализации проверки прав пользователей (на будущее)
@@ -51,4 +54,13 @@ message IsAdminRequest {
 
 message IsAdminResponse {
     bool is_admin = 1;
+}
+
+message RoleRequest {
+    int64 uid = 1;
+    string role = 2;
+}
+
+message RoleResponse {
+    bool success = 1;
 }
